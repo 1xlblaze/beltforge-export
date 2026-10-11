@@ -33,8 +33,8 @@ export function Product3DDialog({ product, open, onOpenChange }: Props) {
           </DialogTitle>
         </DialogHeader>
         <p className="text-xs text-stone-500">
-          Interactive anatomy preview for wholesale buyers. Catalogue style aligned with Fizzy
-          Goblet KK collection; belt construction shown for export sampling.
+          Interactive anatomy preview for wholesale buyers—open each layer to review materials
+          before export sampling.
         </p>
         <ExplodableBeltViewer product={product} className="mt-4" />
       </DialogContent>

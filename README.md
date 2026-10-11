@@ -1,18 +1,20 @@
 # BeltForge Export
 
-Wholesale **belt export** storefront with a **live-synced catalogue** from [Kareena Kapoor Khan × Fizzy Goblet](https://www.fizzygoblet.com/collections/kareena-kapoor-khan-x-fizzy-goblet) (Shopify JSON API + cached `src/data/fizzy-kk-catalog.json`).
+Belts-only wholesale e-commerce for **international export**. Features an **explodable 3D belt viewer** (React Three Fiber), MOQ cart, landed-cost quotes, and inquiry checkout.
 
-Click any product image to open an **explodable 3D belt**—buckle, outer strap, core, lining, and edge layers with material callouts for international buyers.
+## Catalogue
+
+Product data lives in `src/data/belt-catalog.json` (12 belt SKUs). Optional: load from Supabase using the migration in `supabase/migrations/`.
 
 ## Stack
 
 | Layer | Technology |
 | --- | --- |
-| Frontend | **Next.js 16** (React), Tailwind, shadcn/ui, Framer Motion |
-| 3D | **@react-three/fiber**, drei, Three.js |
-| API (Node) | Next.js **Route Handlers** (`/api/*`) on **Vercel** |
-| Database | **Supabase** (Postgres + RLS) — optional; demo catalog works offline |
-| Export math | **Go** microservice (`services/export-api`) with Node fallback |
+| Frontend | Next.js (React), Tailwind, shadcn/ui |
+| 3D | @react-three/fiber, drei |
+| API | Next.js Route Handlers (Vercel) |
+| Database | Supabase (optional) |
+| Export quotes | Go service in `services/export-api` |
 
 ## Quick start
 
@@ -23,42 +25,6 @@ npm run dev
 
 Open [http://localhost:43123](http://localhost:43123).
 
-### Environment variables
+## Deploy
 
-Copy `.env.example` to `.env.local`:
-
-- `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — catalog + inquiries
-- `SUPABASE_SERVICE_ROLE_KEY` — server-side order insert (keep secret)
-- `EXPORT_API_URL` — e.g. `http://localhost:8081` to use the Go quote service
-
-### Supabase
-
-1. Create a project at [supabase.com](https://supabase.com).
-2. Run the SQL in `supabase/migrations/20260314120000_initial.sql` in the SQL editor (or use Supabase CLI).
-3. Add env vars and redeploy.
-
-### Go export API (optional)
-
-```bash
-cd services/export-api
-go run .
-```
-
-Set `EXPORT_API_URL=http://localhost:8081` in `.env.local`. The Next.js route `POST /api/export-quote` proxies to `POST /quote`.
-
-## Deploy on Vercel
-
-1. Push this repo to **GitHub** (use **Create repo** in Cursor if the remote is not linked yet).
-2. Import the repository in [Vercel](https://vercel.com/new).
-3. Add the Supabase environment variables in the Vercel project settings.
-4. Deploy — the Next.js app is the production frontend.
-
-Deploy the Go service separately (Railway, Fly.io, Google Cloud Run, etc.) and set `EXPORT_API_URL` in Vercel to its public URL.
-
-## GitHub repository
-
-This agent cannot create a GitHub organization/repo on your behalf. Click **Create repo** in the agent UI to attach a remote, then pushes from this branch will appear on GitHub. After that, connect the repo to Vercel for continuous deployment.
-
-## License
-
-Private — all rights reserved.
+Connect `1xlblaze/beltforge-export` on GitHub to Vercel, or see `docs/DEPLOY.md`.

@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "BeltForge Export — KK × Fizzy Goblet Belt Wholesale",
+    default: "BeltForge Export — Designer Belts for Global Wholesale",
     template: "%s · BeltForge Export",
   },
   description:
-    "Export-focused belt wholesale with Fizzy Goblet catalogue sync and explorable 3D belt layers for international buyers.",
+    "Belts-only wholesale export with explorable 3D belt layers for international buyers.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

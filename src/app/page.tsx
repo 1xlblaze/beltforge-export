@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { Package, ShieldCheck, Truck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { ProductCard } from "@/components/products/ProductCard";
 import { HeroSection } from "@/components/home/HeroSection";
-import { getCatalogProducts, collectionAttributionUrl } from "@/lib/catalog/get-products";
+import { getCatalogProducts } from "@/lib/catalog/get-products";
 
 export default async function HomePage() {
   const { products } = await getCatalogProducts();
@@ -18,13 +17,13 @@ export default async function HomePage() {
           {[
             {
               icon: Package,
-              title: "Fizzy Goblet catalogue",
-              text: "Assortment synced from Kareena Kapoor Khan × Fizzy Goblet for export buyers entering the belt category.",
+              title: "Belts-only catalogue",
+              text: "Every SKU is a belt line engineered for wholesale export—no mixed categories.",
             },
             {
               icon: Truck,
               title: "3D material breakdown",
-              text: "Click any product image to open an explodable 3D belt—buckle, strap, core, lining, and edge layers.",
+              text: "Click any product image to open an explodable 3D belt—buckle, strap, core, lining, and edge.",
             },
             {
               icon: ShieldCheck,
@@ -47,19 +46,10 @@ export default async function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-semibold text-stone-50 sm:text-3xl">
-              Export highlights
+              Featured belt lines
             </h2>
             <p className="mt-2 text-stone-400">
-              From the{" "}
-              <Link
-                href={collectionAttributionUrl}
-                className="text-amber-300 hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Fizzy Goblet KK collection
-              </Link>
-              — tap imagery to explore belt construction in 3D.
+              Tap imagery to explore construction in 3D before you add MOQ to your export cart.
             </p>
           </div>
           <ButtonLink href="/shop" variant="ghost" className="text-amber-300 hover:text-amber-200">

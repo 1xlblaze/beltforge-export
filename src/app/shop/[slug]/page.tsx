@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import catalog from "@/data/fizzy-kk-catalog.json";
+import catalog from "@/data/belt-catalog.json";
 import { ProductDetailClient } from "@/components/products/ProductDetailClient";
 import { getCatalogProducts, getProductBySlugFromCache } from "@/lib/catalog/get-products";
 import { Badge } from "@/components/ui/badge";
@@ -66,29 +66,24 @@ export default async function ProductPage({ params }: Props) {
             {product.export_ready && (
               <Badge className="bg-emerald-600/90">Export ready</Badge>
             )}
-            {product.source === "fizzygoblet" && (
-              <Badge variant="outline" className="border-stone-600 text-stone-300">
-                Fizzy Goblet catalogue
-              </Badge>
-            )}
           </div>
           <h1 className="mt-4 text-3xl font-semibold text-stone-50">{product.name}</h1>
           <p className="mt-2 text-2xl text-amber-300">
             ${product.price_usd} USD export
             {product.price_inr ? (
               <span className="ml-2 text-base text-stone-500">
-                (retail ref ₹{product.price_inr.toLocaleString("en-IN")})
+                (domestic ref ₹{product.price_inr.toLocaleString("en-IN")})
               </span>
             ) : null}
           </p>
           <p className="mt-6 text-stone-300">{product.long_description}</p>
           <dl className="mt-8 grid grid-cols-2 gap-4 text-sm">
             <div>
-              <dt className="text-stone-500">Material / type</dt>
+              <dt className="text-stone-500">Material</dt>
               <dd className="font-medium">{product.material}</dd>
             </div>
             <div>
-              <dt className="text-stone-500">Belt width (export)</dt>
+              <dt className="text-stone-500">Width</dt>
               <dd className="font-medium">{product.width_cm} cm</dd>
             </div>
             <div>
@@ -96,8 +91,8 @@ export default async function ProductPage({ params }: Props) {
               <dd className="font-medium">{product.moq} units</dd>
             </div>
             <div>
-              <dt className="text-stone-500">Vendor ref</dt>
-              <dd className="font-medium">{product.vendor ?? "Fizzy Goblet"}</dd>
+              <dt className="text-stone-500">HS code</dt>
+              <dd className="font-medium">4203.30</dd>
             </div>
           </dl>
           <ProductDetailClient product={product} />
