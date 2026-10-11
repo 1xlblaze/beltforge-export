@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { FALLBACK_PRODUCTS } from "@/lib/data/products";
-import { fetchProductsFromDb } from "@/lib/supabase/server";
+import { getCatalogProducts } from "@/lib/catalog/get-products";
 
 export async function GET() {
-  const fromDb = await fetchProductsFromDb();
-  return NextResponse.json({ products: fromDb ?? FALLBACK_PRODUCTS });
+  const { products, source, attribution } = await getCatalogProducts();
+  return NextResponse.json({ products, source, attribution });
 }

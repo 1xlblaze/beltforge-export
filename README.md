@@ -1,6 +1,8 @@
 # BeltForge Export
 
-Modern wholesale e-commerce for **designer leather belts** sold to international buyers. The storefront features a **3D animated hero** (React Three Fiber), a MOQ-based cart, export landed-cost quotes, and wholesale inquiry checkout.
+Wholesale **belt export** storefront with a **live-synced catalogue** from [Kareena Kapoor Khan × Fizzy Goblet](https://www.fizzygoblet.com/collections/kareena-kapoor-khan-x-fizzy-goblet) (Shopify JSON API + cached `src/data/fizzy-kk-catalog.json`).
+
+Click any product image to open an **explodable 3D belt**—buckle, outer strap, core, lining, and edge layers with material callouts for international buyers.
 
 ## Stack
 

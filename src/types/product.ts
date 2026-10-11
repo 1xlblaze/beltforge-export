@@ -1,3 +1,10 @@
+export type BeltLayer = {
+  id: string;
+  name: string;
+  material: string;
+  description: string;
+};
+
 export type Product = {
   id: string;
   slug: string;
@@ -5,13 +12,19 @@ export type Product = {
   description: string;
   long_description: string;
   price_usd: number;
+  price_inr?: number;
   moq: number;
   material: string;
   width_cm: number;
   image_url: string;
+  gallery?: string[];
   category: string;
   featured: boolean;
   export_ready: boolean;
+  source?: string;
+  collection?: string;
+  vendor?: string;
+  layers?: BeltLayer[];
 };
 
 export type ExportQuoteRequest = {

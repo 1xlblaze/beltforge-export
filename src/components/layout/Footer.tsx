@@ -8,8 +8,17 @@ export function Footer() {
         <div>
           <p className="font-semibold text-stone-100">BeltForge Export</p>
           <p className="mt-2 text-sm leading-relaxed">
-            Designer belts crafted for wholesale partners shipping outside the country.
-            FOB-ready documentation, MOQ-friendly lines, and regional export support.
+            Wholesale belt export platform with catalogue data from{" "}
+            <a
+              href="https://www.fizzygoblet.com/collections/kareena-kapoor-khan-x-fizzy-goblet"
+              className="text-amber-300 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kareena Kapoor Khan × Fizzy Goblet
+            </a>
+            . Product names and images are used for export partnership presentation; trademarks
+            belong to their respective owners.
           </p>
         </div>
         <div>
